@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 
 @Component({
@@ -11,6 +11,7 @@ import { RouterOutlet } from '@angular/router';
     <router-outlet />
   `,
   styles: [],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class AppComponent {
   title = 'angular-bp';
