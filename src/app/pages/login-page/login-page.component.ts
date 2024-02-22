@@ -1,24 +1,26 @@
 import { ChangeDetectionStrategy, Component, inject } from '@angular/core'
-import {
-  NonNullableFormBuilder,
-  ReactiveFormsModule,
-  Validators,
-} from '@angular/forms'
+import { Router } from '@angular/router'
+import { LoginComponent } from '../../components/login/login.component'
+import { UserService } from '../../services/user.service'
 
 @Component({
   selector: 'app-login-page',
   standalone: true,
-  imports: [ReactiveFormsModule],
   templateUrl: './login-page.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
+  imports: [LoginComponent],
 })
 export class LoginPageComponent {
-  form = inject(NonNullableFormBuilder).group({
-    email: ['', [Validators.required, Validators.email]],
-    password: [null, [Validators.required, Validators.minLength(8)]],
-  })
+  private r = inject(Router)
+  private userServ = inject(UserService)
 
-  submit() {
-    console.log(this.form.value)
+  handleSubmit() {
+    this.userServ.user = {
+      id: 'randomUUID',
+      name: 'Jean-Claude Duss',
+      photoURL: 'https://i.pravatar.cc/40',
+      age: 34,
+    }
+    this.r.navigate([''])
   }
 }

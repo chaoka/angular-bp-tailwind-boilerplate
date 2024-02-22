@@ -2,5 +2,10 @@
 @tailwind components
 @tailwind utilities
 
+@import @angular/cdk/overlay-prebuilt.css
+
 body
-    @apply antialiased font-medium text-slate-800 bg-slate-50 dark:bg-slate-900
+    @apply antialiased font-medium text-slate-800 bg-slate-50 dark:bg-slate-900 dark:text-slate-50
+
+[type="text"], input:where(:not([type])), [type="email"], [type="url"], [type="password"], [type="number"], [type="date"], [type="datetime-local"], [type="month"], [type="search"], [type="tel"], [type="time"], [type="week"], [multiple], textarea, select
+    @apply dark:bg-slate-700

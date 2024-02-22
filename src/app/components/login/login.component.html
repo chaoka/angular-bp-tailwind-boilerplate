@@ -1,0 +1,29 @@
+<form
+  class="flex flex-col rounded bg-white p-6 shadow-[0_0_5px] shadow-black/15 dark:bg-slate-800 dark:shadow-black [&>*]:rounded [&>input:focus:invalid]:ring-rose-400 [&>input:focus]:border-cyan-500 [&>input:focus]:ring-1 [&>input:focus]:ring-cyan-500 [&>input:invalid]:border-rose-400 [&>input]:w-full [&>input]:border-slate-300 [&>input]:dark:border-slate-500 [&>label]:text-xs"
+  novalidate
+  [formGroup]="form"
+  (ngSubmit)="submit.emit()"
+>
+  <label for="email">Email address</label>
+  <input
+    class="mb-6 mt-0.5"
+    formControlName="email"
+    placeholder="you@example.com"
+    type="email"
+  />
+  <label for="password">Password</label>
+
+  <input
+    class="mb-12 mt-0.5"
+    formControlName="password"
+    minlength="5"
+    placeholder="••••••••"
+    type="password"
+  />
+  <button
+    class="from-blue-500 to-violet-600 py-2 text-white hover:from-blue-700 hover:to-violet-800 enabled:bg-gradient-to-r disabled:bg-slate-200 disabled:dark:bg-slate-600 disabled:dark:text-slate-800"
+    [disabled]="form.invalid"
+  >
+    Log in
+  </button>
+</form>
