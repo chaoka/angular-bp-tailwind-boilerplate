@@ -1,14 +1,14 @@
 <div class="flex h-dvh items-center justify-center p-6">
   <form
-    (ngSubmit)="submit()"
     class="flex flex-col rounded bg-white p-6 shadow-[0_0_5px] shadow-black/15 [&>*]:rounded [&>input:focus:invalid]:ring-rose-400 [&>input:focus]:border-cyan-500 [&>input:focus]:ring-1 [&>input:focus]:ring-cyan-500 [&>input:invalid]:border-rose-400 [&>input]:w-full [&>input]:border-slate-300 [&>label]:text-xs"
-    [formGroup]="form"
     novalidate
+    [formGroup]="form"
+    (ngSubmit)="submit()"
   >
     <label for="email">Email address</label>
     <input
-      formControlName="email"
       class="mb-6 mt-0.5"
+      formControlName="email"
       placeholder="you@example.com"
       type="email"
     />
@@ -16,14 +16,14 @@
 
     <input
       class="mb-12 mt-0.5"
-      placeholder="••••••••"
       formControlName="password"
-      type="password"
       minlength="8"
+      placeholder="••••••••"
+      type="password"
     />
     <button
-      [disabled]="form.invalid"
       class="from-blue-500 to-violet-600 py-2 text-white hover:from-blue-700 hover:to-violet-800 enabled:bg-gradient-to-r disabled:bg-slate-200"
+      [disabled]="form.invalid"
     >
       Log in
     </button>

@@ -57,7 +57,8 @@
         "plugin:@angular-eslint/template/accessibility"
       ],
       "rules": {
-        "@angular-eslint/template/prefer-self-closing-tags": ["error"]
+        "@angular-eslint/template/prefer-self-closing-tags": ["error"],
+        "@angular-eslint/template/attributes-order": ["error", { "alphabetical": true }]
       }
     },
     {
