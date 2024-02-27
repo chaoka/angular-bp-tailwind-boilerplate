@@ -1,0 +1,24 @@
+<app-navbar />
+<div class="p-6">
+  <div
+    class="mb-6 rounded border bg-white p-6 dark:border-slate-700 dark:bg-slate-800"
+  >
+    <p class="text-2xl">Hello, {{ (user$ | async)?.name || 'visitor' }}</p>
+  </div>
+  @if (beerList$ | async; as beerList) {
+    <div
+      class="rounded border bg-white p-6 dark:border-slate-700 dark:bg-slate-800"
+    >
+      <p class="mb-6 text-lg">Here's your beer selection:</p>
+      <div class="grid grid-cols-3 gap-3">
+        @for (beer of beerList; track beer.id) {
+          <div
+            class="rounded border bg-white p-3 dark:border-slate-700 dark:bg-slate-800"
+          >
+            {{ beer.name }}
+          </div>
+        }
+      </div>
+    </div>
+  }
+</div>

@@ -1,0 +1,41 @@
+<nav class="bg-white dark:bg-slate-800">
+  <div class="mx-auto flex max-w-2xl items-center justify-between px-4">
+    <div
+      class="flex gap-4 [&>a]:px-2 [&>a]:py-5 [&>a]:text-slate-500 [&>a]:dark:text-slate-400"
+    >
+      <a
+        routerLink=""
+        routerLinkActive="!text-inherit border-b-2 border-slate-500 dark:border-slate-300"
+        >Home</a
+      >
+      <a
+        routerLink="playground"
+        routerLinkActive="!text-inherit border-b-2 border-slate-500 dark:border-slate-300"
+        >Playground</a
+      >
+    </div>
+    <button
+      class="size-10 overflow-hidden rounded-full bg-white/50"
+      [cdkMenuTriggerFor]="menu"
+    >
+      <img
+        alt="random user"
+        class="h-full w-full object-cover"
+        [src]="(user$ | async)?.photoURL || 'assets/avatar.jpg'"
+      />
+    </button>
+  </div>
+</nav>
+<ng-template #menu>
+  <div
+    cdkMenu
+    class="inline-flex w-52 flex-col rounded bg-white py-1 shadow-[0_0_5px] shadow-black/25 dark:bg-slate-800 dark:shadow-black [&>*:hover]:bg-slate-100 [&>*:hover]:dark:bg-slate-700 [&>*]:py-1.5 [&>*]:pl-3 [&>*]:text-left"
+  >
+    @if (user$ | async; as u) {
+      <button cdkMenuItem (click)="openProfileDialog()">Profile</button>
+      <button cdkMenuItem (click)="logOut()">Log out</button>
+    } @else {
+      <a cdkMenuItem routerLink="/login">Log in</a>
+    }
+  </div>
+</ng-template>
